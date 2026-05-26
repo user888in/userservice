@@ -1,0 +1,39 @@
+# ── Full stack (DB + App) ──────────────────────────────────
+
+# Start everything (builds image if needed)
+docker compose up --build
+
+# Start in background (detached)
+docker compose up --build -d
+
+# Stop everything
+docker compose down
+
+# Stop + delete volumes (wipe DB data)
+docker compose down -v
+
+
+# ── DB only (active development mode) ─────────────────────
+
+# Start just postgres
+docker compose -f docker-compose-dev.yml up -d
+
+# Then run app normally (picks up dev profile)
+./mvnw spring-boot:run
+
+
+# ── Debugging ──────────────────────────────────────────────
+
+# View logs
+docker compose logs -f app
+docker compose logs -f postgres
+
+# Shell into running container
+docker exec -it userservice-app sh
+docker exec -it userservice-db psql -U devuser -d userservice_db
+
+# Check health status of all services
+docker compose ps
+
+# Rebuild only the app (not postgres)
+docker compose up --build app
