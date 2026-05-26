@@ -1,0 +1,39 @@
+# ===== MAVEN =====
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ===== IDE =====
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+*.swp
+*.swo
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== SPRING BOOT =====
+application-prod.yml       # prod secrets
+application-local.yml      # Local overrides stay local
+*.env
+.env
+.env.*
+
+# ===== LOGS =====
+logs/
+*.log
+
+# ===== DOCKER =====
+.dockerignore              # This gets its own file
+
+# ===== SECRETS (CRITICAL) =====
+*.pem
+*.key
+*.p12
+*.jks
+secrets/
