@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+        "-//Checkstyle//DTD Checkstyle Configuration 1.3//EN"
+        "https://checkstyle.org/dtds/configuration_1_3.dtd">
+
+<module name="Checker">
+    <property name="severity" value="error"/>
+
+    <module name="TreeWalker">
+        <!-- No unused imports -->
+        <module name="UnusedImports"/>
+        <!-- No wildcard imports -->
+        <module name="AvoidStarImport"/>
+        <!-- Braces required -->
+        <module name="NeedBraces"/>
+        <!-- No trailing whitespace -->
+        <module name="WhitespaceAround"/>
+        <!-- Method length max 50 lines -->
+        <module name="MethodLength">
+            <property name="max" value="50"/>
+        </module>
+    </module>
+
+    <!-- No tab characters -->
+    <module name="FileTabCharacter"/>
+</module>

@@ -1,0 +1,30 @@
+version: '3.9'
+
+# Run ONLY the database in Docker
+# Your app runs via: ./mvnw spring-boot:run
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: userservice-db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: userservice_db
+      POSTGRES_USER: devuser
+      POSTGRES_PASSWORD: devpass
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U devuser -d userservice_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - userservice-network
+
+volumes:
+  postgres_data:
+
+networks:
+  userservice-network:
