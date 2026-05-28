@@ -1,4 +1,4 @@
-package com.devops;
+package com.devops.userservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
