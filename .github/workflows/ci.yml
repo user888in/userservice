@@ -52,6 +52,9 @@ jobs:
           distribution: 'temurin'           # same JDK as our Docker image
           cache: 'maven'                    # cache ~/.m2 between runs → faster CI
 
+      - name: Make mvnw executable
+        run: chmod +x mvnw
+
       # 3. Run tests
       - name: Run tests
         run: ./mvnw test -B
