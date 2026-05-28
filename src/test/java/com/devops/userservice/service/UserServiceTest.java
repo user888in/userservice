@@ -38,7 +38,7 @@ public class UserServiceTest {
         when(userRepository.save(any())).thenReturn(saved);
         UserResponseDTO result = userService.createUser(dto);
         assertThat(result.getId()).isEqualTo(1L);
-        assertThat(result.getEmail()).isEqualTo("mahesh1@example.com");
+        assertThat(result.getEmail()).isEqualTo("mahesh1@gmail.com");
     }
 
     @Test
